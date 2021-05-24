@@ -5,4 +5,21 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: $sinkin800;
+	text-transform: uppercase;
+}
+h2 {
+	font-size: 32px;
+}
+h3 {
+	font-size: 26px;
+}
+h4 {
+	font-size: 24px;
+}
+h5 {
+	font-size: 20px;
+}
+h6 {
+	font-size: 16px;
 }

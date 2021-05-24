@@ -133,6 +133,17 @@ function ls21_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'			=> 'Contact Block',
+			'id'			=> 'contact-1',
+			'description'	=> 'Add contact information to display under the logo',
+			'before_widget'	=> '<div id="contact-block">',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h2 class="sr-only">',
+			'after_title'	=> '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'ls21_widgets_init' );
 
@@ -177,4 +188,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

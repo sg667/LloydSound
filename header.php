@@ -25,35 +25,41 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ls21' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	<header id="masthead" class="site-header" style="background: url('<?php header_image(); ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+	<?php// the_header_image_tag(); ?>
+		<div class="header-container">
+			<div class="site-branding">
 				<?php
-			else :
+				if (is_front_page()) :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$ls21_description = get_bloginfo( 'description', 'display' );
-			if ( $ls21_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $ls21_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+				<h1><?php the_custom_logo(); ?></h1>
+				<?php else : ?>
+				<p><?php the_custom_logo(); ?></p>
+				<?php endif;
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ls21' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+				if ( is_active_sidebar('contact-1') ) :
+					dynamic_sidebar('contact-1');
+				endif;
+
+				$ls21_description = get_bloginfo( 'description', 'display' );
+				?>
+			</div><!-- .site-branding -->
+			<div class="header-right">
+				<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ls21' ); ?></button>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+				<?php 
+				if ( $ls21_description || is_customize_preview() ) : ?>
+					<p class="front-description"><?php echo $ls21_description ?></p>
+			<?php endif; ?>
+			</div>
+		</div>
 	</header><!-- #masthead -->

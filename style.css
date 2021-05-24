@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Sean Gnau
 Author URI: http://underscores.me/
 Description: The Lloyd Sound Inc. Wordpress theme
-Version: 1.0.0
+Version: 1.0.2
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -21,7 +21,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -49,19 +48,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+@font-face {
+	font-family: 'sinkin_sans800_black';
+	src: url("sass/fonts/SinkinSans-800Black-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'sinkin_sans400_regular';
+	src: url("sass/fonts/SinkinSans-400Regular-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
 
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
-
 /* Normalize
 --------------------------------------------- */
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
 /* Document
 	 ========================================================================== */
-
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -73,7 +81,6 @@ html {
 
 /* Sections
 	 ========================================================================== */
-
 /**
  * Remove the margin in all browsers.
  */
@@ -99,7 +106,6 @@ h1 {
 
 /* Grouping content
 	 ========================================================================== */
-
 /**
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
@@ -121,7 +127,6 @@ pre {
 
 /* Text-level semantics
 	 ========================================================================== */
-
 /**
  * Remove the gray background on active links in IE 10.
  */
@@ -187,7 +192,6 @@ sup {
 
 /* Embedded content
 	 ========================================================================== */
-
 /**
  * Remove the border on images inside links in IE 10.
  */
@@ -197,7 +201,6 @@ img {
 
 /* Forms
 	 ========================================================================== */
-
 /**
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
@@ -343,7 +346,6 @@ textarea {
 
 /* Interactive
 	 ========================================================================== */
-
 /*
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
@@ -360,7 +362,6 @@ summary {
 
 /* Misc
 	 ========================================================================== */
-
 /**
  * Add the correct display in IE 10+.
  */
@@ -377,7 +378,6 @@ template {
 
 /* Box sizing
 --------------------------------------------- */
-
 /* Inherit box-sizing to more easily change it's value on a component level.
 @link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 *,
@@ -393,7 +393,6 @@ html {
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-
 /* Typography
 --------------------------------------------- */
 body,
@@ -415,10 +414,34 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: "sinkin_sans800_black", "Arial Black", sans-serif;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 16px;
 }
 
 p {
 	margin-bottom: 1.5em;
+	font-size: 20px;
+	font-family: "sinkin_sans400_regular", "Arial", sans-serif;
 }
 
 dfn,
@@ -473,6 +496,200 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+.page .entry-content, .page .entry-header {
+	padding: 1em;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.page .entry-header h1 {
+	font-size: 48px;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.front-embed {
+	max-width: 2560px;
+	width: 100%;
+	margin: 0 auto 3em auto;
+	padding: 16px;
+}
+
+.front-embed .embed-content-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	display: block;
+}
+
+.front-embed.has-bg-image .embed-content-container > p, .front-embed.has-bg-image .embed-content-container > h2, .front-embed.has-bg-image .embed-content-container > h3, .front-embed.has-bg-image .embed-content-container > h4, .front-embed.has-bg-image .embed-content-container > h5, .front-embed.has-bg-image .embed-content-container > h6 {
+	color: #ffffff;
+}
+
+.flex-grid {
+	display: flex;
+	row-gap: 16px;
+	column-gap: 16px;
+	width: 100%;
+	flex-flow: row wrap;
+	align-items: stretch;
+}
+
+.flex-grid .grid-object {
+	flex: 1 0 auto;
+	position: relative;
+	display: block;
+	flex-basis: 600px;
+}
+
+.flex-grid .grid-object.post-has-bg-image {
+	padding-top: 450px;
+}
+
+.flex-grid .grid-object.post-has-bg-image .grid-content {
+	position: absolute;
+	bottom: 0;
+	height: auto;
+	background: #BBE2FF;
+	background: linear-gradient(180deg, rgba(187, 226, 255, 0) 0%, #bbe2ff 34%, #bbe2ff 100%);
+}
+
+.flex-grid .grid-object.post-has-bg-image .grid-content h2 {
+	font-size: 48px;
+}
+
+.flex-grid .grid-object.post-has-bg-image .grid-content h2, .flex-grid .grid-object.post-has-bg-image .grid-content h3, .flex-grid .grid-object.post-has-bg-image .grid-content h4, .flex-grid .grid-object.post-has-bg-image .grid-content h5, .flex-grid .grid-object.post-has-bg-image .grid-content h6 {
+	background: #3A3D57;
+	padding: 0.1em 0.5em;
+	color: #ffffff;
+}
+
+.flex-grid .grid-object a, .flex-grid .grid-object a:hover, .flex-grid .grid-object a:focus, .flex-grid .grid-object a:visited, .flex-grid .grid-object a:active {
+	color: #000000;
+}
+
+.flex-grid .grid-object a:hover, .flex-grid .grid-object a:focus {
+	text-decoration: underline;
+}
+
+.flex-grid .grid-object .grid-content {
+	background: rgba(255, 255, 255, 0.8);
+	display: block;
+	width: 100%;
+	min-height: 200px;
+	height: 100%;
+	padding: 20px;
+}
+
+.flex-grid .grid-object .grid-content h2, .flex-grid .grid-object .grid-content h3, .flex-grid .grid-object .grid-content h4, .flex-grid .grid-object .grid-content h5, .flex-grid .grid-object .grid-content h6 {
+	font-size: 26px;
+	display: inline-block;
+	margin-bottom: 0.5em;
+	margin-top: 0;
+}
+
+.flex-grid .grid-object .grid-content p {
+	margin-top: 0;
+}
+
+.site-info p {
+	text-align: center;
+}
+
+#page {
+	max-width: 2560px;
+	display: block;
+	margin: 0 auto;
+}
+
+#masthead {
+	width: 100%;
+}
+
+#masthead .header-container {
+	max-width: 1400px;
+	width: 100%;
+	display: flex;
+	margin: 0 auto;
+}
+
+#masthead .header-right {
+	flex: 1 1 auto;
+	position: relative;
+}
+
+#masthead .header-right .front-description {
+	background: rgba(255, 255, 255, 0.8);
+	font-family: "sinkin_sans800_black", "Arial Black", sans-serif;
+	color: #3A3D57;
+	font-size: 36px;
+	padding: 15px 25px;
+	position: absolute;
+	bottom: 20px;
+}
+
+#masthead .site-branding {
+	background: #3A3D57;
+	z-index: 200;
+	max-width: 220px;
+	display: inline-block;
+	flex: none;
+}
+
+#masthead .site-branding h1 {
+	margin-top: 0;
+}
+
+#masthead .site-branding .custom-logo {
+	padding: 16px;
+}
+
+@media (max-width: 768px) {
+	#masthead .site-branding {
+		width: 100%;
+		max-width: none;
+		background: none;
+	}
+	#masthead .site-branding .custom-logo-link {
+		width: 100px;
+		display: block;
+		margin: 0 auto;
+	}
+	#masthead .site-branding #contact-block {
+		background: rgba(58, 61, 87, 0.8);
+	}
+	#masthead .header-container {
+		display: block;
+		position: relative;
+	}
+	#masthead .header-right {
+		position: initial;
+	}
+	#masthead .header-right .front-description {
+		display: block;
+		font-size: 16px;
+		position: initial;
+	}
+}
+
+#contact-block p {
+	font-family: "sinkin_sans400_regular", "Arial", sans-serif;
+	color: #ffffff;
+	text-align: center;
+	font-size: 16px;
+}
+
+#contact-block p a {
+	color: #ffffff;
+}
+
+@media (max-width: 768px) {
+	#contact-block p {
+		font-size: 14px;
+	}
 }
 
 hr {
@@ -540,9 +757,7 @@ a:visited {
 	color: #800080;
 }
 
-a:hover,
-a:focus,
-a:active {
+a:hover, a:focus, a:active {
 	color: #191970;
 }
 
@@ -550,8 +765,7 @@ a:focus {
 	outline: thin dotted;
 }
 
-a:hover,
-a:active {
+a:hover, a:active {
 	outline: 0;
 }
 
@@ -577,8 +791,7 @@ input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
 }
 
-button:active,
-button:focus,
+button:active, button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -640,16 +853,25 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
 	display: block;
-	width: 100%;
+	background: #3A3D57;
+	font-family: "sinkin_sans800_black", "Arial Black", sans-serif;
+	text-transform: uppercase;
+	margin: auto -9999px;
+	border-left: 9999px solid #3A3D57;
+	border-right: 9999px solid #3A3D57;
+}
+
+@media (max-width: 600px) {
+	.main-navigation {
+		background: none;
+	}
 }
 
 .main-navigation ul {
@@ -695,29 +917,56 @@ textarea {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 20px 0.8em;
+}
+
+.main-navigation a:hover, .main-navigation a:focus {
+	background: #ffffff;
+	color: #3A3D57;
 }
 
 /* Small menu. */
-.menu-toggle,
+.menu-toggle {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 44px;
+	width: 44px;
+	background: #3A3D57;
+	border: 0;
+	border-radius: 0;
+	background-image: url("img/burger_menu_white.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25px 20px;
+	font-size: 0;
+}
+
 .main-navigation.toggled ul {
 	display: block;
+	position: absolute;
+	top: 44px;
+	width: 100%;
+}
+
+.main-navigation.toggled ul li {
+	background: #3A3D57;
 }
 
 @media screen and (min-width: 37.5em) {
-
 	.menu-toggle {
 		display: none;
 	}
-
 	.main-navigation ul {
 		display: flex;
 	}
 }
 
-.site-main .comment-navigation,
-.site-main
-.posts-navigation,
-.site-main
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
 .post-navigation {
 	margin: 0 0 1.5em;
 }
@@ -877,10 +1126,8 @@ textarea {
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-
 /* Jetpack infinite scroll
 --------------------------------------------- */
-
 /* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
@@ -895,12 +1142,10 @@ textarea {
 /*--------------------------------------------------------------
 # Utilities
 --------------------------------------------------------------*/
-
 /* Accessibility
 --------------------------------------------- */
-
 /* Text meant only for screen readers. */
-.screen-reader-text {
+.screen-reader-text, .sr-only {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
@@ -913,7 +1158,7 @@ textarea {
 	word-wrap: normal !important;
 }
 
-.screen-reader-text:focus {
+.screen-reader-text:focus, .sr-only:focus {
 	background-color: #f1f1f1;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -941,20 +1186,16 @@ textarea {
 /* Alignments
 --------------------------------------------- */
 .alignleft {
-
 	/*rtl:ignore*/
 	float: left;
-
 	/*rtl:ignore*/
 	margin-right: 1.5em;
 	margin-bottom: 1.5em;
 }
 
 .alignright {
-
 	/*rtl:ignore*/
 	float: right;
-
 	/*rtl:ignore*/
 	margin-left: 1.5em;
 	margin-bottom: 1.5em;
@@ -967,3 +1208,5 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,7 +1,14 @@
 .main-navigation {
 	display: block;
-	width: 100%;
-
+	background: $lloyd_purple;
+	font-family: $sinkin800;
+	text-transform: uppercase;
+	margin: auto -9999px;
+	border-left: 9999px solid $lloyd_purple;
+	border-right: 9999px solid $lloyd_purple;
+	@media (max-width: 600px) {
+		background: none;
+	}
 	ul {
 		display: none;
 		list-style: none;
@@ -60,6 +67,13 @@
 	a {
 		display: block;
 		text-decoration: none;
+		color: #ffffff;
+		font-size: 16px;
+		padding: 20px 0.8em;
+		&:hover, &:focus {
+			background: #ffffff;
+			color: $lloyd_purple;
+		}
 	}
 
 	.current_page_item > a,
@@ -70,11 +84,31 @@
 }
 
 /* Small menu. */
-.menu-toggle,
+.menu-toggle {
+	display: block;
+	position:absolute;
+	top: 0;
+	right: 0;
+	height: 44px;
+	width: 44px;
+	background: $lloyd_purple;
+	border: 0;
+	border-radius: 0;
+	background-image: url('img/burger_menu_white.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25px 20px;
+	font-size: 0;
+}
 .main-navigation.toggled ul {
 	display: block;
+	position: absolute;
+	top: 44px;
+	width: 100%;
+	li  {
+		background: $lloyd_purple;
+	}
 }
-
 @media screen and (min-width: 37.5em) {
 
 	.menu-toggle {

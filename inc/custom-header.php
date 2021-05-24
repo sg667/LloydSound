@@ -24,8 +24,8 @@ function ls21_custom_header_setup() {
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
-				'width'              => 1000,
-				'height'             => 250,
+				'width'              => 2560,
+				'height'             => 550,
 				'flex-height'        => true,
 				'wp-head-callback'   => 'ls21_header_style',
 			)
@@ -76,3 +76,4 @@ if ( ! function_exists( 'ls21_header_style' ) ) :
 		<?php
 	}
 endif;
+
